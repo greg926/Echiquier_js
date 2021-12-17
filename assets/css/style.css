@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #312E2B;
+}
+
+.numbers {
+    height: 62%;
+    width: 1%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    margin-left: 0px;
+    color: white;
+}
+
+
+.letters {
+    position: absolute;
+    width: 100%;
+    left: 2px;
+    bottom: 62px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+
+
+.chessboard{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    box-shadow: 10px 0px 10px -10px rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+}
+
+.chessboard > .chessboard-square{
+    width: calc(500px / 8);
+    height: calc(500px / 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chessboard > .chessboard-square[role="white"]{
+    background: #FFFF;
+}
+
+.chessboard > .chessboard-square[role="black"]{
+    background: #000;
+}
+
+.chessboard > .chessboard-square:nth-child(1){
+    border-top-left-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(8){
+    border-top-right-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(57){
+    border-bottom-left-radius: 25px;
+}
+
+.chessboard > .chessboard-square:nth-child(64){
+    border-bottom-right-radius: 25px;
+}
+
+.chessboard > .chessboard-square::before{
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: dodgerblue;
+    position: absolute;
+    opacity: 0.50;
+    visibility: hidden;
+}
+
+.chessboard > .chessboard-square.move::before{
+    visibility: visible;
+}
+
+.chessboard > .chessboard-square.enemy::before{
+    visibility: visible;
+}
+
+.chessboard > .chessboard-square.castling::before{
+    visibility: visible;
+}
+
+.chessboard > .chessboard-square.from{
+    background: #bd5c6c; 
+}
+
+.chessboard > .chessboard-square.to{
+    background: #e27587;
+}
+
+.chessboard > .chessboard-square > img.chessboard-piece{
+    max-width: 50px;
+    width: 50px;
+    height: auto;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+.chessboard > .chessboard-square > img.chessboard-piece:active{
+    cursor: grabbing;
+}
+
+.player-card{
+    padding: 18.5px 25px;
+    display: flex;
+    position: relative;
+}
+
+.player-card > .rows{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.player-card > .row-1{
+    cursor: pointer;
+    border-radius: 6px;
+    margin:2.5px;
+}
+
+.player-card > .row-1 > .icon1 {
+    width:30px;
+    height:30px;
+    margin: 5px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.player-card > .row-1 > .icon2 {
+    width:30px;
+    height:30px;
+    margin: 5px;
+    border-radius: 50%;
+    background: #000;
+}
+
+.player-card > .row-1 > .text{
+    margin: 0px 5px;
+    color: #ffffff;
+}
+
+.player-card > .row-1 > .text > .status span{
+    font-size: 12px;
+}
+
+.player-card.player-1 > .row-1{
+    justify-content: flex-end;
+}
+
+.player-card.player-2 > .row-2{
+    justify-content: flex-end;
+}
+
+
